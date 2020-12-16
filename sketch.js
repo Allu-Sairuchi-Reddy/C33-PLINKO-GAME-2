@@ -69,7 +69,10 @@ function draw() {
   text("200", 660,790);
   text("200", 740,790);
   Engine.update(engine);
-
+  
+if(particle!=null) 
+{ particle.display(); }
+  
    for (var i = 0; i < plinkos.length; i++) {
      
      plinkos[i].display();   
