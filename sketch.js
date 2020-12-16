@@ -69,9 +69,41 @@ function draw() {
   text("200", 660,790);
   text("200", 740,790);
   Engine.update(engine);
-  
-if(particle!=null) 
-{ particle.display(); }
+  if ( gameState =="end") {
+    
+    textSize(100);
+    text("GameOver", 150, 250);
+  }
+if(particle!=null){
+  particle.display();
+  if (particle.body.position.y>760)
+         {
+               if (particle.body.position.x < 300) 
+               {
+                   score=score+500;      
+                   particle=null;
+                   if ( turn>= 5) gameState ="end";                          
+               }
+ 
+ 
+               else if (particle.body.position.x < 600 && particle.body.position.x > 301 ) 
+               {
+                     score = score + 100;
+                     particle=null;
+                     if ( turn>= 5) gameState ="end";
+ 
+               }
+               else if (particle.body.position.x < 900 && particle.body.position.x > 601 )
+               {
+                     score = score + 200;
+                     particle=null;
+                     if ( turn>= 5)  gameState ="end";
+ 
+               }      
+               
+         }
+   
+}
   
    for (var i = 0; i < plinkos.length; i++) {
      
